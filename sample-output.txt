@@ -1,0 +1,101 @@
+############################################
+  I2C PROTOCOL SIMULATION (Software Only)
+  Simulated Slave Address: 0x50
+############################################
+
+=========================================
+I2C WRITE TRANSACTION
+=========================================
+START condition (SDA falls while SCL is high)
+
+-- Sending byte in [Slave Address + Write bit]: 0xA0 --
+  bit7 (SDA) = 1
+  bit6 (SDA) = 0
+  bit5 (SDA) = 1
+  bit4 (SDA) = 0
+  bit3 (SDA) = 0
+  bit2 (SDA) = 0
+  bit1 (SDA) = 0
+  bit0 (SDA) = 0
+ACK/NACK   : 0
+
+-- Sending byte in [Register Address]: 0x02 --
+  bit7 (SDA) = 0
+  bit6 (SDA) = 0
+  bit5 (SDA) = 0
+  bit4 (SDA) = 0
+  bit3 (SDA) = 0
+  bit2 (SDA) = 0
+  bit1 (SDA) = 1
+  bit0 (SDA) = 0
+ACK/NACK   : 0
+
+-- Sending byte in [Data]: 0x7A --
+  bit7 (SDA) = 0
+  bit6 (SDA) = 1
+  bit5 (SDA) = 1
+  bit4 (SDA) = 1
+  bit3 (SDA) = 1
+  bit2 (SDA) = 0
+  bit1 (SDA) = 1
+  bit0 (SDA) = 0
+ACK/NACK   : 0
+STOP condition (SDA rises while SCL is high)
+
+[Slave] Register 0x02 updated to 0x7A
+
+=========================================
+I2C READ TRANSACTION
+=========================================
+START condition
+
+-- Sending byte in [Slave Address + Write bit]: 0xA0 --
+  bit7 (SDA) = 1
+  bit6 (SDA) = 0
+  bit5 (SDA) = 1
+  bit4 (SDA) = 0
+  bit3 (SDA) = 0
+  bit2 (SDA) = 0
+  bit1 (SDA) = 0
+  bit0 (SDA) = 0
+ACK/NACK   : 0
+
+-- Sending byte in [Register Address to read]: 0x02 --
+  bit7 (SDA) = 0
+  bit6 (SDA) = 0
+  bit5 (SDA) = 0
+  bit4 (SDA) = 0
+  bit3 (SDA) = 0
+  bit2 (SDA) = 0
+  bit1 (SDA) = 1
+  bit0 (SDA) = 0
+ACK/NACK   : 0
+REPEATED START condition
+
+-- Sending byte in [Slave Address + Read bit]: 0xA1 --
+  bit7 (SDA) = 1
+  bit6 (SDA) = 0
+  bit5 (SDA) = 1
+  bit4 (SDA) = 0
+  bit3 (SDA) = 0
+  bit2 (SDA) = 0
+  bit1 (SDA) = 0
+  bit0 (SDA) = 1
+ACK/NACK   : 0
+
+-- Receiving byte in [Register Data]: 0x7A --
+  bit7 (SDA) = 0
+  bit6 (SDA) = 1
+  bit5 (SDA) = 1
+  bit4 (SDA) = 1
+  bit3 (SDA) = 1
+  bit2 (SDA) = 0
+  bit1 (SDA) = 1
+  bit0 (SDA) = 0
+Master ACK : 0
+STOP condition
+
+=========================================
+Verification: Read back value = 0x7A
+Write/Read cycle SUCCESSFUL
+=========================================
